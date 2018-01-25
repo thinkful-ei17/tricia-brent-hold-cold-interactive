@@ -9,7 +9,9 @@ class Game extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            modalView:false
+            modalView:false,
+            inputGuess:'',
+            guessList: [],
         }
     }
 
@@ -18,13 +20,24 @@ class Game extends React.Component {
         this.setState({modalView:!this.state.modalView})
     }
 
+    setInputGuess(guess){
+      console.log(guess);
+      this.setState({inputGuess: guess})
+    }
+
+    submitGuess() {
+      this.setState({inputGuess: '', guessList: [...this.state.guessList, this.state.inputGuess] });
+      console.log(this.state.guessList)
+    }
+
     render(){
         return (
             <div>
                 <Header showModal={this.state.modalView} onWhatClicked={()=>this.displayModal()} />
-                <GuessSection feedback="Make your guess!" />
-                <GuessCount count={3} />
-                <GuessList guesses={[10, 15, 25]} />
+                <GuessSection inputGuess={value=>{this.setInputGuess(value)}} 
+                 submitGuess={()=>{this.submitGuess()}} currentGuess={this.state.inputGuess}/>
+                <GuessCount count={this.state.guessList.length} />
+                <GuessList guesses={this.state.guessList} />
             </div>
         );
     }
