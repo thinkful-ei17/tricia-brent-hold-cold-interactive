@@ -34,7 +34,7 @@ class Game extends React.Component {
         return (
             <div>
                 <Header showModal={this.state.modalView} onWhatClicked={()=>this.displayModal()} />
-                <GuessSection userGuess={value=>{this.updateUserGuess(value)}} 
+                <GuessSection handleUpdateUserGuess={value=>{this.updateUserGuess(value)}} 
                  submitGuess={()=>{this.submitGuess()}} guessDraft={this.state.guessDraft}/>
                 <GuessCount count={this.state.submittedGuesses.length} />
                 <GuessList guesses={this.state.submittedGuesses} />
