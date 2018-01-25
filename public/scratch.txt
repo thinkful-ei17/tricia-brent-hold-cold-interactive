@@ -1,0 +1,25 @@
+Add state to your components where necessary to store information about the current progress through the game.
+
+The current number which the user is trying to guess.
+The user's most recent guess.
+A history of the user's guesses.
+The feedback currently being displayed to the user.
+The different options for feedback that the user can be given.
+Add interactivity so your components respond to the user making a guess, and update the state accordingly.
+
+what should pop up modal explaining game
+
+newgame should reset state
+
+button click should 
+1)update state.lastguess & state.allguesses.
+
+2)
+
+
+last guess 25
+
+all guesses [10,15,25]
+
+function()
+see how close last guess is to correct number and give feedback accordingly

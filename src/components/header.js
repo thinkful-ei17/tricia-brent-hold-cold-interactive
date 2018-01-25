@@ -6,10 +6,11 @@ import InfoModal from './info-modal';
 import './header.css';
 
 export default function Header(props) {
+ 
     return (
         <header>
-            <TopNav />
-            {/* <InfoModal /> */}
+            <TopNav onWhatClicked={()=> props.onWhatClicked()} />
+            <InfoModal class={props.class}/>
             <h1>HOT or COLD</h1>
         </header>
     );
