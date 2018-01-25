@@ -15,7 +15,7 @@ export default function InfoModal(props) {
                         <li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li><br /><br />
                     </ul>
                     <br /><p>So, Are you ready?</p>
-                    <br /><button className="close" href="#">Got It!</button>
+                    <br /><button className="close" onClick={() => props.onWhatClicked()} href="#">Got It!</button>
                 </div>
             </div>
         </div>
