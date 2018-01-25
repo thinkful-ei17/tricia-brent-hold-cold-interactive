@@ -10,7 +10,7 @@ export default function Header(props) {
     return (
         <header>
             <TopNav onWhatClicked={()=> props.onWhatClicked()} />
-            <InfoModal class={props.class} onWhatClicked={() => props.onWhatClicked()}/>
+            <InfoModal showModal={props.showModal} onWhatClicked={() => props.onWhatClicked()}/>
             <h1>HOT or COLD</h1>
         </header>
     );

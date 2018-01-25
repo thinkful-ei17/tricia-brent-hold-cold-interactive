@@ -21,7 +21,7 @@ class Game extends React.Component {
     render(){
         return (
             <div>
-                <Header class={this.state.modalView?'show':'hide'} onWhatClicked={()=>this.displayModal()} />
+                <Header showModal={this.state.modalView} onWhatClicked={()=>this.displayModal()} />
                 <GuessSection feedback="Make your guess!" />
                 <GuessCount count={3} />
                 <GuessList guesses={[10, 15, 25]} />

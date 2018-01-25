@@ -3,9 +3,10 @@ import React from 'react';
 import './info-modal.css';
 
 export default function InfoModal(props) {
+    let showOrHide=props.showModal ? 'show' : 'hide';
     return (
-        <div className={'overlay'+props.class} id="modal">
-            <div className={props.class}>
+        <div className={'overlay'+showOrHide} id="modal">
+            <div className={showOrHide}>
                 <h3>What do I do?</h3><br/>
                 <div>
                     <p>This is a Hot or Cold Number Guessing Game. The game goes like this: </p><br />
