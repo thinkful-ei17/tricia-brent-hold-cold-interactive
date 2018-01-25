@@ -10,8 +10,8 @@ class Game extends React.Component {
         super(props);
         this.state = {
             modalView:false,
-            inputGuess:'',
-            guessList: [],
+            guessDraft:'',// guessDraft
+            submittedGuesses: [],
         }
     }
 
@@ -19,25 +19,25 @@ class Game extends React.Component {
         console.log('woohoo')
         this.setState({modalView:!this.state.modalView})
     }
-
-    setInputGuess(guess){
+    // updateDraft or updateGuessDraft
+    updateUserGuess(guess){
       console.log(guess);
-      this.setState({inputGuess: guess})
+      this.setState({guessDraft: guess})
     }
 
     submitGuess() {
-      this.setState({inputGuess: '', guessList: [...this.state.guessList, this.state.inputGuess] });
-      console.log(this.state.guessList)
+      this.setState({guessDraft: '', submittedGuesses: [...this.state.submittedGuesses, this.state.guessDraft] });
+      console.log(this.state.submittedGuesses)
     }
 
     render(){
         return (
             <div>
                 <Header showModal={this.state.modalView} onWhatClicked={()=>this.displayModal()} />
-                <GuessSection inputGuess={value=>{this.setInputGuess(value)}} 
-                 submitGuess={()=>{this.submitGuess()}} currentGuess={this.state.inputGuess}/>
-                <GuessCount count={this.state.guessList.length} />
-                <GuessList guesses={this.state.guessList} />
+                <GuessSection userGuess={value=>{this.updateUserGuess(value)}} 
+                 submitGuess={()=>{this.submitGuess()}} guessDraft={this.state.guessDraft}/>
+                <GuessCount count={this.state.submittedGuesses.length} />
+                <GuessList guesses={this.state.submittedGuesses} />
             </div>
         );
     }
